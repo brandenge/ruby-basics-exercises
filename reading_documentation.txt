@@ -1,0 +1,70 @@
+*** 1 - Where to Find Documentation ***
+
+Problem: Where can you find the most complete Ruby documentation?
+
+Solution:
+
+1) ruby-lang.org
+2) ruby-doc.org
+
+ruby-lang.org is newer and now the preferred source of documentation as it appears to be more thorough, and has support for more languages.
+
+ruby-doc.org is older and was the original source for documentation for a long time. It only has support for the English language. However, it is still useful.
+
+*** 2 - while Loops ***
+
+Problem: Locate the description of the while loop in the ruby documentation.
+
+Solution:
+
+1) At ruby-lang.org, under control expressions:
+https://docs.ruby-lang.org/en/3.0.0/doc/syntax/control_expressions_rdoc.html#label-while+Loop
+
+2) At ruby-doc.org, under control expressions:
+https://ruby-doc.org/core-3.0.2/doc/syntax/control_expressions_rdoc.html#label-while+Loop
+
+*** 3 - Return Value of while ***
+
+Problem: Using the ruby documentation, determine what value a while loop returns.
+
+Solution:
+
+"The result of a while loop is nil unless break is used to supply a value."
+
+*** 4 - Return Value of break ***
+
+Problem: In the previous exercise, you learned that the while loop returns nil unless break is used. Locate the documentation for break, and determine what value break sets the return value to for the while loop.
+
+Solution:
+
+break accepts a value or an expression that will return a value. If break is used in a while loop, it will pass on that value as the return value for the while loop it is breaking from.
+
+break returns nil if no argument is given to it.
+
+*** 5 - Large Numbers ***
+
+Problem: Using the ruby documentation, determine how you can write large numbers in a way that makes them easier to read.
+
+Solution:
+
+You can add underscores at regular intervals within the number, such as after every 3 digits (just as commas are normally used). So for example, the number 1234567890, which normally would be written as 1,234,567,890, can be written in Ruby using the syntax 1_234_567_890.
+
+Note that the underscores can be placed in the number however you want. Ruby does not care, it is purely for human readability purposes. So the same number can be represented as 12_34_56_789_0.
+
+*** 6 - Symbol Syntax ***
+
+Problem: Using the ruby documentation, determine how you would write a Symbol that represents your name. We aren't looking for a String; we want a Symbol, which is one of ruby's datatypes.
+
+Solution: :John
+
+*** 7 - String Class ***
+
+Problem: Locate and open the class documentation for the String class.
+
+Solution: https://docs.ruby-lang.org/en/3.0.0/String.html
+
+*** 8 - Right Justifying Strings ***
+
+Problem: Use the ruby documentation for the String class to determine which method can be used to right justify a String object.
+
+Solution: #rjust method. See: https://docs.ruby-lang.org/en/3.0.0/String.html#method-i-rjust

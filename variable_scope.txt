@@ -1,0 +1,189 @@
+*** 1 - What's My Value? (Part 1) ***
+
+Problem: What will the following code print and why? Don't run it until you have tried to answer.
+
+a = 7
+
+def my_value(b)
+  b += 10
+end
+
+my_value(a)
+puts a
+
+Solution: 7.
+
+The returned value from the method call is not saved anywhere, and the method is not destructive. The argument a passed into the method will be re-assigned as its own local variable scoped to just inside the method. In order to modify the variable a destructively, you would have to re-assign a as the returned value from the method call.
+
+*** 2 - What's My Value? (Part 2) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = 7
+
+def my_value(a)
+  a += 10
+end
+
+my_value(a)
+puts a
+
+Solution: 7.
+
+This is the exact same thing as part 1. Just because the parameter name in this case has the same name as the argument being passed to it, does not change anything except that the name for variable is now being shadowed when it is being used inside of the method definition. However, the argument a being passed in as the method call is still being re-assigned to another local variable a scoped to just inside of the method definition. Local variables outside of the method definition are never visible inside of a method definition, unless they have global scope, such as global variables or constants. Also, local variables inside of the method definition are also not visible outside of it.
+
+*** 3 - What's My Value? (Part 3) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = 7
+
+def my_value(b)
+  a = b
+end
+
+my_value(a + 5)
+puts a
+
+Solution: 7.
+
+This is still the same as the previous exercises. The local variable initialized inside of the method definition is different than the local variable initialized outside of it. The method scope is self-contained so it cannot destructively alter the local variable a initialized outside of the method definition. In order to alter the value of a, you would need to re-assign a to the returned value from the method call. This would effectively pass the result from the scope inside the method to the scope outside of the method.
+
+Unless the returned value from the method call is saved to a variable, it will be lost the moment that method call has finished. The only way to have side-effects be passed from inside of a method call to outside the method call (i.e. to modify an object destructively) is to either:
+
+1) save the returned value from the method by assigning it to a variable
+2) modify a variable with global scope such as a global variable or constant (even though you are not supposed to modify constants, Ruby will allow it but throw an error).
+3) call a method that will modify its receiver destructively (these methods only exist for mutable objects though, like strings or arrays - not a primitive data types like numbers).
+
+(Note that in Ruby, strings are not considered a primitive datatype, meaning they are mutable. This is different from Javascript.)
+
+*** 4 - What's My Value? (Part 4) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = "Xyzzy"
+
+def my_value(b)
+  b[2] = '-'
+end
+
+my_value(a)
+puts a
+
+Solution: "Xy-zy"
+
+Strings are not considered a primitive data type in Ruby (unlike Javascript), and therefore they are mutable. In this example, the [] is an operator / mutating method for string objects that does modify its string destructively.
+
+So the difference here from the previous exercises is:
+
+1) the top-level local variable being passed as an argument to the method is a string (which is mutable) instead of a number (which is immutable). This means that it is being passed by reference into the method (rather than passed by value, as it would for a number or any other immutable object). This further means that the top-level local variable a and the local variable b are both pointing to the same object (again, because it is pass by reference).
+
+2) we are using a mutating/destructive method (the [] operator) inside of the method definition which mutates its receiver.
+
+We can think of strings as behaving somewhat similarly as an array here. Each character in the string is like an element in an array, which we can change.
+
+*** 5 - What's My Value? (Part 5) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = "Xyzzy"
+
+def my_value(b)
+  b = 'yzzyX'
+end
+
+my_value(a)
+puts a
+
+Solution: "Xyzzy"
+
+There is not mutating/destructive method/operator being used here. The assignment operator is not destructive. So even though strings are pass by reference and mutable, without any mutating/destructive method/operator, it will simply create a new object with the modifications and then point to (and/or return) that new object. In this case, the assignment operator simply creates the new object and changes what the local variable b is pointing to so that it points to the new object it just created. Therefore, the object that the top-level local variable a is pointing to remains unchanged.
+
+*** 6 - What's My Value? (Part 6) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = 7
+
+def my_value(b)
+  b = a + a
+end
+
+my_value(a)
+puts a
+
+Solution: This will throw a NameError for undefined local variable 'a'. The local variable a being used inside of the method definition is scoped to inside of the method. Therefore, it is different than the top-level local variable a which is initialized to the integer 7. This means that the local variable a inside of the method definition is undefined because it is uninitialized, which will create the error, and the code will not finish executing past that line.
+
+*** 7 - What's My Value? (Part 7) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = 7
+array = [1, 2, 3]
+
+array.each do |element|
+  a = element
+end
+
+puts a
+
+Solution: 3.
+
+Arrays are mutable, and also we are using a block to access the local variable a, instead of a method. Blocks use closures so their scope is not self-contained like a method call is. Therefore, the block is able to access the top-level local variable 'a' in the outer scope (outer scope still cannot access local variables initialized in the inner scope of the block, which does not apply in this situation).
+
+Note that 'a' gets re-assigned to every element in the array. 3 is the final element in the array, and so that is the final assignment, which then gets printed.
+
+*** 8 - What's My Value? (Part 8) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+array = [1, 2, 3]
+
+array.each do |element|
+  a = element
+end
+
+puts a
+
+Solution: This will throw a NameError for undefined local variable 'a'. The local variable 'a' that is initialized in the inner scope of the block is not accessible in outer scope. So the local variable 'a' being used in the outer scope is uninitialized and undefined.
+
+*** 9 - What's My Value? (Part 9) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = 7
+array = [1, 2, 3]
+
+array.each do |a|
+  a += 1
+end
+
+puts a
+
+Solution: 7.
+
+The local variable 'a' in the top-level scope is different than the local variable 'a' being used to represent each element in the block that will be executed for each iteration for the .each method. Therefore, the local variable 'a' inside of the block is not accessible outside of the block, because it was initialized inside of the block. So the puts statement will puts the local variable 'a' from the outer scope since that is the only variable with that name that is accessible from that outer scope.
+
+In this context, the local variable 'a' in the inner scope inside of the block is said to be shadowing the local variable 'a' in the top-level outer scope, as if it is hiding in the shadow of the local variable 'a' in the top-level outer scope. The local variable 'a' in the top-level outer scope is said to be shadowed.
+
+*** 10 - What's My Value? (Part 10) ***
+
+Problem: What will the following code print, and why? Don't run the code until you have tried to answer.
+
+a = 7
+array = [1, 2, 3]
+
+def my_value(ary)
+  ary.each do |b|
+    a += b
+  end
+end
+
+my_value(array)
+puts a
+
+Solution: This will throw an error. It is a NoMethodError instead of a NameError for undefined local variable 'a' (because for some reason it first sees 'a' as nil instead of undefined, I am not sure why), but the reasons are effectively the same regardless.
+
+Now because the block is being used inside of a method definition, it is going to have self-contained scope to inside that method call. So even though local variable 'a' is being used inside of a block that would normally be able to access outer scope, that block is still inside of a method call with the self-contained scope that cannot access variables from outer scope.
+
+Because of this, when it gets to the statement/expression of a += b this can also be represented as a = a + b, where the right side of the assignment operator is evaluated first, and there the local variable 'a' will be uninitialized and therefore undefined upon the first iteration when that block is first executed (or perhaps because it sees 'a' on the left side first, it temporarily assigns it nil as it looks further ahead, hence the NoMethodError for nilClass, but I am not sure).

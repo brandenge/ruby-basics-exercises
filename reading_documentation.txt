@@ -1,4 +1,4 @@
-*** 1 - Where to Find Documentation ***
+    *** 1 - Where to Find Documentation ***
 
 Problem: Where can you find the most complete Ruby documentation?
 
@@ -11,7 +11,7 @@ ruby-lang.org is newer and now the preferred source of documentation as it appea
 
 ruby-doc.org is older and was the original source for documentation for a long time. It only has support for the English language. However, it is still useful.
 
-*** 2 - while Loops ***
+    *** 2 - while Loops ***
 
 Problem: Locate the description of the while loop in the ruby documentation.
 
@@ -23,7 +23,7 @@ https://docs.ruby-lang.org/en/3.0.0/doc/syntax/control_expressions_rdoc.html#lab
 2) At ruby-doc.org, under control expressions:
 https://ruby-doc.org/core-3.0.2/doc/syntax/control_expressions_rdoc.html#label-while+Loop
 
-*** 3 - Return Value of while ***
+    *** 3 - Return Value of while ***
 
 Problem: Using the ruby documentation, determine what value a while loop returns.
 
@@ -31,7 +31,7 @@ Solution:
 
 "The result of a while loop is nil unless break is used to supply a value."
 
-*** 4 - Return Value of break ***
+    *** 4 - Return Value of break ***
 
 Problem: In the previous exercise, you learned that the while loop returns nil unless break is used. Locate the documentation for break, and determine what value break sets the return value to for the while loop.
 
@@ -41,7 +41,7 @@ break accepts a value or an expression that will return a value. If break is use
 
 break returns nil if no argument is given to it.
 
-*** 5 - Large Numbers ***
+    *** 5 - Large Numbers ***
 
 Problem: Using the ruby documentation, determine how you can write large numbers in a way that makes them easier to read.
 
@@ -51,19 +51,19 @@ You can add underscores at regular intervals within the number, such as after ev
 
 Note that the underscores can be placed in the number however you want. Ruby does not care, it is purely for human readability purposes. So the same number can be represented as 12_34_56_789_0.
 
-*** 6 - Symbol Syntax ***
+    *** 6 - Symbol Syntax ***
 
 Problem: Using the ruby documentation, determine how you would write a Symbol that represents your name. We aren't looking for a String; we want a Symbol, which is one of ruby's datatypes.
 
 Solution: :John
 
-*** 7 - String Class ***
+    *** 7 - String Class ***
 
 Problem: Locate and open the class documentation for the String class.
 
 Solution: https://docs.ruby-lang.org/en/3.0.0/String.html
 
-*** 8 - Right Justifying Strings ***
+    *** 8 - Right Justifying Strings ***
 
 Problem: Use the ruby documentation for the String class to determine which method can be used to right justify a String object.
 

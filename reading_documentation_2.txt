@@ -1,10 +1,10 @@
-*** 1 - Methods Without Arguments ***
+    *** 1 - Methods Without Arguments ***
 
 Problem: How would you use String#upcase to create an uppercase version of the string "xyz"?
 
 Solution: str = "xyz".upcase # => "XYZ"
 
-*** 2 - Required Arguments ***
+    *** 2 - Required Arguments ***
 
 Problem: Assume you have this Array:
 
@@ -14,7 +14,7 @@ How would you use Array#insert to insert the numbers 5, 6, and 7 between the ele
 
 Solution: a.insert(3, 5, 6, 7)
 
-*** 3 - Optional Arguments ***
+    *** 3 - Optional Arguments ***
 
 Problem: Assume you have the following code:
 

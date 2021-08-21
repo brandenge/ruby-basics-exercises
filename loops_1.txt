@@ -1,4 +1,4 @@
-*** 1 - Runaway Loop ***
+    *** 1 - Runaway Loop ***
 
 Problem: The code below is an example of an infinite loop. The name describes exactly what it does: loop infinitely. This loop isn't useful in a real program, though. Modify the code so the loop stops after the first iteration.
 
@@ -13,7 +13,7 @@ loop do
   break
 end
 
-*** 2 - Loopception ***
+    *** 2 - Loopception ***
 
 Problem: The code below is an example of a nested loop. Both loops currently loop infinitely. Modify the code so each loop stops after the first iteration.
 
@@ -42,7 +42,7 @@ end
 
 puts 'This is outside all loops.'
 
-*** 3 - Control the Loop ***
+    *** 3 - Control the Loop ***
 
 Problem: Modify the following loop so it iterates 5 times instead of just once.
 
@@ -63,7 +63,7 @@ loop do
   break if iterations > 5
 end
 
-*** 4 - Loop on Command ***
+    *** 4 - Loop on Command ***
 
 Problem: Modify the code below so the loop stops iterating when the user inputs 'yes'.
 
@@ -81,7 +81,7 @@ loop do
   puts "You entered #{answer}. Enter 'yes' to exit."
 end
 
-*** 5 - Say Hello ***
+    *** 5 - Say Hello ***
 
 Problem: Modify the code below so "Hello!" is printed 5 times.
 
@@ -101,7 +101,7 @@ while i < 6
   i += 1
 end
 
-*** 6 - Print While ***
+    *** 6 - Print While ***
 
 Problem: Using a while loop, print 5 random numbers between 0 and 99. The code below shows an example of how to begin solving this exercise.
 
@@ -121,7 +121,7 @@ end
 
 puts numbers
 
-*** 7 - Count Up ***
+    *** 7 - Count Up ***
 
 Problem: The following code outputs a countdown from 10 to 1. Modify the code so that it counts from 1 to 10 instead.
 
@@ -141,7 +141,7 @@ until count > 10
   count += 1
 end
 
-*** 8 - Print Until ***
+    *** 8 - Print Until ***
 
 Problem: Given the array of several numbers below, use an until loop to print each number.
 
@@ -157,7 +157,7 @@ until i == numbers.length
   i += 1
 end
 
-*** 9 - That's Odd ***
+    *** 9 - That's Odd ***
 
 Problem: The code below shows an example of a for loop. Modify the code so that it only outputs i if i is an odd number.
 
@@ -171,7 +171,7 @@ for i in 1..100
   puts i if i.odd?
 end
 
-*** 10 - Greet Your Friends ***
+    *** 10 - Greet Your Friends ***
 
 Problem: Your friends just showed up! Given the following array of names, use a for loop to greet each friend individually.
 
